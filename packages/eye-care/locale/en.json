@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Eye-care mode",
+    "description": "Warms the whole Web interface into a paper-like palette for less blue light: one switch in Settings → General, layered over the current appearance with a separate warm palette for light and dark themes. The choice is stored per browser and applies immediately; turning the switch off restores the built-in colors."
+  }
+}

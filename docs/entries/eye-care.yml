@@ -1,0 +1,6 @@
+url: https://github.com/szprob/dsh-plugins/tree/main/packages/eye-care
+name: szprob/dsh-plugins#eye-care
+category: theme
+description:
+  en: 'Eye-care mode behind one switch in Settings → General: swaps the raw colour scales and the literal-valued tokens, so links, user bubbles, the send button, syntax highlighting, JSON trees and file diffs turn warm along with the surfaces. Separate warm palettes for light and dark, layered over the active built-in appearance.'
+  zh: '「设置 → 通用设置」里一个开关的护眼模式：整条替换原始色阶与字面量 token，链接、用户气泡、发送按钮、代码高亮、JSON 树与文件 diff 随底色一起变暖。浅色与深色各一套暖色板，叠加在当前内置外观之上。'

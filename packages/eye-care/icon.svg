@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <linearGradient id="eyeCareIris" x1="9" y1="10" x2="27" y2="26" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e0b273"/>
+      <stop offset="1" stop-color="#a9691b"/>
+    </linearGradient>
+  </defs>
+  <path d="M18 10.5c-5.2 0-9.3 3.6-11.1 6.6a1.9 1.9 0 0 0 0 1.8C8.7 21.9 12.8 25.5 18 25.5s9.3-3.6 11.1-6.6a1.9 1.9 0 0 0 0-1.8C27.3 14.1 23.2 10.5 18 10.5Zm0 2.6c3.6 0 6.7 2.3 8.5 4.9-1.8 2.6-4.9 4.9-8.5 4.9s-6.7-2.3-8.5-4.9c1.8-2.6 4.9-4.9 8.5-4.9Z" fill="#c5b89d"/>
+  <circle cx="18" cy="18" r="4.1" fill="url(#eyeCareIris)"/>
+  <circle cx="16.6" cy="16.6" r="1.35" fill="#f8f2e3"/>
+  <path d="M24.5 7.5a4.2 4.2 0 0 1 4.2 4.2" fill="none" stroke="#d18a1e" stroke-width="1.7" stroke-linecap="round"/>
+  <path d="M11.5 28.5a4.2 4.2 0 0 1-4.2-4.2" fill="none" stroke="#d18a1e" stroke-width="1.7" stroke-linecap="round"/>
+</svg>

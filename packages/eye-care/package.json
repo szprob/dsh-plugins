@@ -1,0 +1,55 @@
+{
+  "name": "dsh-eye-care",
+  "version": "1.0.0",
+  "description": "护眼模式：把 Web 界面换成暖色纸感配色，降低蓝光观感，浅色与深色主题各一套色板。",
+  "type": "module",
+  "license": "MIT",
+  "author": "songze",
+  "homepage": "https://github.com/szprob/dsh-plugins/tree/main/packages/eye-care",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szprob/dsh-plugins.git",
+    "directory": "packages/eye-care"
+  },
+  "bugs": {
+    "url": "https://github.com/szprob/dsh-plugins/issues"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-theme",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "eye-care",
+    "theme",
+    "appearance"
+  ],
+  "engines": {
+    "dsh": ">=0.2.0"
+  }
+}
