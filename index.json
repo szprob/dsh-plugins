@@ -1,0 +1,68 @@
+{
+  "format": 1,
+  "title": {
+    "en": "songze DSH plugins",
+    "zh": "songze 的 DSH 插件"
+  },
+  "description": {
+    "en": "Plugins for DeepSeek Harness.",
+    "zh": "自用的 DeepSeek Harness 插件。"
+  },
+  "metadata": {
+    "categories": {
+      "appearance": {
+        "title": {
+          "en": "Appearance",
+          "zh": "外观"
+        }
+      }
+    }
+  },
+  "plugins": [
+    {
+      "name": "dsh-eye-care",
+      "title": {
+        "en": "Eye-care mode",
+        "zh": "护眼模式"
+      },
+      "description": {
+        "en": "Warms the whole Web interface into a paper-like palette for less blue light: one switch in Settings → General, layered over the current appearance with a separate warm palette for light and dark themes. The choice is stored per browser and applies immediately; turning the switch off restores the built-in colors.",
+        "zh": "把整个 Web 界面换成暖色纸感配色，降低蓝光观感：设置 → 通用设置里一个开关，叠加在当前外观之上（浅色、深色各有一套暖色板）。开关状态按浏览器保存，切换即时生效；关掉开关就恢复内置配色。"
+      },
+      "author": "songze",
+      "homepage": "https://github.com/szprob/dsh-plugins/tree/main/packages/eye-care",
+      "repository": {
+        "url": "https://github.com/szprob/dsh-plugins",
+        "directory": "packages/eye-care"
+      },
+      "metadata": {
+        "category": "appearance",
+        "keywords": [
+          "dsh-plugin",
+          "deepseek-harness",
+          "eye-care",
+          "theme",
+          "appearance"
+        ],
+        "labels": [],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1795513506,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/szprob/dsh-plugins",
+            "commit": "1452db9fd4ad59293fd9b4cd5fdcbc57b325981a",
+            "path": "packages/eye-care"
+          },
+          "engines": {
+            "dsh": ">=0.2.0"
+          }
+        }
+      ],
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDM2IDM2Ij4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZXllQ2FyZUlyaXMiIHgxPSI5IiB5MT0iMTAiIHgyPSIyNyIgeTI9IjI2IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2UwYjI3MyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNhOTY5MWIiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxwYXRoIGQ9Ik0xOCAxMC41Yy01LjIgMC05LjMgMy42LTExLjEgNi42YTEuOSAxLjkgMCAwIDAgMCAxLjhDOC43IDIxLjkgMTIuOCAyNS41IDE4IDI1LjVzOS4zLTMuNiAxMS4xLTYuNmExLjkgMS45IDAgMCAwIDAtMS44QzI3LjMgMTQuMSAyMy4yIDEwLjUgMTggMTAuNVptMCAyLjZjMy42IDAgNi43IDIuMyA4LjUgNC45LTEuOCAyLjYtNC45IDQuOS04LjUgNC45cy02LjctMi4zLTguNS00LjljMS44LTIuNiA0LjktNC45IDguNS00LjlaIiBmaWxsPSIjYzViODlkIi8+CiAgPGNpcmNsZSBjeD0iMTgiIGN5PSIxOCIgcj0iNC4xIiBmaWxsPSJ1cmwoI2V5ZUNhcmVJcmlzKSIvPgogIDxjaXJjbGUgY3g9IjE2LjYiIGN5PSIxNi42IiByPSIxLjM1IiBmaWxsPSIjZjhmMmUzIi8+CiAgPHBhdGggZD0iTTI0LjUgNy41YTQuMiA0LjIgMCAwIDEgNC4yIDQuMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDE4YTFlIiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTExLjUgMjguNWE0LjIgNC4yIDAgMCAxLTQuMi00LjIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2QxOGExZSIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K"
+    }
+  ]
+}
