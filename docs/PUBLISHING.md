@@ -15,11 +15,7 @@ DSH 没有「中央官方市场」。插件市场上架 = **把插件发布成�
 
 ### 1. 建公开仓库并推上去
 
-```sh
-cd ~/projects/dsh-eye-care
-git remote add origin git@github.com:szprob/dsh-eye-care.git
-git push -u origin main
-```
+仓库已经建好：`szprob/dsh-plugins`，本地在 `~/git/dsh-plugins`。
 
 仓库根必须有 `package.json` 的 `dsh.bundle` 声明和同级的 `cordis.patch.yml` —— 这两样已经有了。
 
@@ -30,7 +26,7 @@ GitHub 仓库页 → About 右侧齿轮 → Topics 填 `dsh-plugin`。社区列�
 ### 3. 生成索引
 
 ```sh
-npm run index -- --repo https://github.com/szprob/dsh-eye-care
+npm run index
 ```
 
 产出 `index.json`，里面钉住当前 HEAD 的 40 位 commit。脚本会用宿主同一份校验器（`@deepseek-ai/dsh-plugin-market-index`）自检，字段写错会直接报 JSON 路径。
@@ -43,8 +39,8 @@ npm run index -- --repo https://github.com/szprob/dsh-eye-care
 
 | 方式 | URL 形态 | 说明 |
 |---|---|---|
-| jsDelivr 读 GitHub | `https://cdn.jsdelivr.net/gh/szprob/dsh-eye-care@main/index.json` | 推荐。国内可达，走 CDN。首次发布后约 10 分钟生效 |
-| raw.githubusercontent | `https://raw.githubusercontent.com/szprob/dsh-eye-care/main/index.json` | 备选，国内不稳 |
+| jsDelivr 读 GitHub | `https://cdn.jsdelivr.net/gh/szprob/dsh-plugins@main/index.json` | 推荐。国内可达，走 CDN。首次发布后约 10 分钟生效 |
+| raw.githubusercontent | `https://raw.githubusercontent.com/szprob/dsh-plugins/main/index.json` | 备选，国内不稳 |
 | 发到 npm | `https://cdn.jsdelivr.net/npm/dsh-eye-care/index.json` | 需要把 index.json 一起发布 |
 
 DSH 给索引源的时间是 15 秒，GitHub Pages 在国内经常超时，所以优先用 jsDelivr。
@@ -66,8 +62,8 @@ DSH 给索引源的时间是 15 秒，GitHub Pages 在国内经常超时，所�
 一个 PR，只加一个文件：`data/plugins/<owner>__<repo>.yml`
 
 ```yaml
-url: https://github.com/szprob/dsh-eye-care
-name: szprob/dsh-eye-care
+url: https://github.com/szprob/dsh-plugins/tree/main/packages/eye-care
+name: szprob/dsh-plugins#eye-care
 category: theme
 description:
   en: 'Warm paper palette for the Web UI: one switch in Settings → General, with separate warm tones for light and dark themes.'
@@ -113,24 +109,24 @@ npm publish --access public
 ## 发新版的完整流程
 
 ```sh
-cd ~/projects/dsh-eye-care
+cd ~/git/dsh-plugins
 # 1. 改代码，跑测试
 npm test
 
-# 2. 升版本
-npm version patch          # 或 minor / major
+# 2. 升版本（在子包里升，不是根包）
+cd packages/eye-care && npm version patch && cd ../..   # 或 minor / major
 
 # 3. 提交并推送
 git push && git push --tags
 
 # 4. 重新生成索引（commit 变了）
-npm run index -- --repo https://github.com/szprob/dsh-eye-care
+npm run index
 
 # 5. 提交索引
-git add index.json && git commit -m "chore: 索引指向 v$(node -p 'require("./package.json").version')" && git push
+git add index.json && git commit -m "chore: 重新生成索引" && git push
 
-# 6.（可选）发 npm
-npm publish --access public
+# 6.（可选）发 npm —— 必须进到子包目录
+cd packages/eye-care && npm publish --access public
 ```
 
 索引更新后，等 jsDelivr 缓存（约 10 分钟）+ DSH 的 `cacheTtlMs`（10 分钟），「发现」页会显示「可更新」。
@@ -139,6 +135,6 @@ npm publish --access public
 
 ## 本机现状
 
-- 插件以 **link 方式**装在 desktop profile（`dsh-eye-care` → `~/projects/dsh-eye-care`），改代码即时生效，**不需要**走上面的发布流程。
+- 插件以 **link 方式**装在 desktop profile（`dsh-eye-care` → `~/git/dsh-plugins/packages/eye-care`），改代码即时生效，**不需要**走上面的发布流程。
 - 走发布流程是为了让别人能装，以及让自己换机器时能用索引装回来。
 - 市场索引源当前为空；发布完成后按 A.5 添加即可。
