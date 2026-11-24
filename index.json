@@ -50,11 +50,11 @@
       "versions": [
         {
           "version": "1.0.0",
-          "publishTimestamp": 1795513506,
+          "publishTimestamp": 1795513567,
           "source": {
             "type": "git",
             "url": "https://github.com/szprob/dsh-plugins",
-            "commit": "1452db9fd4ad59293fd9b4cd5fdcbc57b325981a",
+            "commit": "08212c02cb2414ce3ad06be2dcbf645ad7a7ffe9",
             "path": "packages/eye-care"
           },
           "engines": {
