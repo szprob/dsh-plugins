@@ -50,11 +50,11 @@
       "versions": [
         {
           "version": "1.0.0",
-          "publishTimestamp": 1795513567,
+          "publishTimestamp": 1795513576,
           "source": {
             "type": "git",
             "url": "https://github.com/szprob/dsh-plugins",
-            "commit": "08212c02cb2414ce3ad06be2dcbf645ad7a7ffe9",
+            "commit": "9a6554737e81a085c79597fd836bfc8747e09807",
             "path": "packages/eye-care"
           },
           "engines": {
@@ -63,6 +63,52 @@
         }
       ],
       "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDM2IDM2Ij4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZXllQ2FyZUlyaXMiIHgxPSI5IiB5MT0iMTAiIHgyPSIyNyIgeTI9IjI2IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2UwYjI3MyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNhOTY5MWIiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxwYXRoIGQ9Ik0xOCAxMC41Yy01LjIgMC05LjMgMy42LTExLjEgNi42YTEuOSAxLjkgMCAwIDAgMCAxLjhDOC43IDIxLjkgMTIuOCAyNS41IDE4IDI1LjVzOS4zLTMuNiAxMS4xLTYuNmExLjkgMS45IDAgMCAwIDAtMS44QzI3LjMgMTQuMSAyMy4yIDEwLjUgMTggMTAuNVptMCAyLjZjMy42IDAgNi43IDIuMyA4LjUgNC45LTEuOCAyLjYtNC45IDQuOS04LjUgNC45cy02LjctMi4zLTguNS00LjljMS44LTIuNiA0LjktNC45IDguNS00LjlaIiBmaWxsPSIjYzViODlkIi8+CiAgPGNpcmNsZSBjeD0iMTgiIGN5PSIxOCIgcj0iNC4xIiBmaWxsPSJ1cmwoI2V5ZUNhcmVJcmlzKSIvPgogIDxjaXJjbGUgY3g9IjE2LjYiIGN5PSIxNi42IiByPSIxLjM1IiBmaWxsPSIjZjhmMmUzIi8+CiAgPHBhdGggZD0iTTI0LjUgNy41YTQuMiA0LjIgMCAwIDEgNC4yIDQuMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDE4YTFlIiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTExLjUgMjguNWE0LjIgNC4yIDAgMCAxLTQuMi00LjIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2QxOGExZSIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K"
+    },
+    {
+      "name": "dsh-whale-ui",
+      "title": {
+        "en": "Whale Girl UI",
+        "zh": "鲸鱼娘界面"
+      },
+      "description": {
+        "en": "Replaces the sidebar brand, new-session page and send/stop buttons with animated whale-girl mascots.",
+        "zh": "把左上角品牌/新会话、新会话首页和发送/停止按钮换成会动的鲸鱼娘。"
+      },
+      "author": "songze",
+      "homepage": "https://github.com/szprob/dsh-plugins/tree/main/packages/whale-ui",
+      "repository": {
+        "url": "https://github.com/szprob/dsh-plugins",
+        "directory": "packages/whale-ui"
+      },
+      "metadata": {
+        "category": "appearance",
+        "keywords": [
+          "dsh-plugin",
+          "deepseek-harness",
+          "whale-girl",
+          "mascot",
+          "appearance",
+          "animation"
+        ],
+        "labels": [],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1795513576,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/szprob/dsh-plugins",
+            "commit": "9a6554737e81a085c79597fd836bfc8747e09807",
+            "path": "packages/whale-ui"
+          },
+          "engines": {
+            "dsh": ">=0.2.0"
+          }
+        }
+      ],
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiIgd2lkdGg9IjM2IiBoZWlnaHQ9IjM2Ij4KICA8cmVjdCB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHJ4PSI4IiBmaWxsPSIjZThmMmZiIi8+CiAgPHBhdGggZD0iTTggMjJjMy04IDE0LTExIDIwLTYtMS00LTYtOC0xMi03LTYgMS0xMCA2LTkgMTIgLjMgMiAxIDQgMiA1bDQtNCAxIDYgNC00LTItNnoiIGZpbGw9IiMzZjZmYTgiLz4KICA8Y2lyY2xlIGN4PSIyMiIgY3k9IjE2IiByPSIxLjQiIGZpbGw9IiNmZmYiLz4KPC9zdmc+Cg=="
     }
   ]
 }

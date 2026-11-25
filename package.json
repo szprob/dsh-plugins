@@ -13,6 +13,6 @@
   },
   "scripts": {
     "index": "node scripts/make-index.mjs",
-    "test": "node packages/eye-care/tests/smoke.mjs"
+    "test": "node packages/eye-care/tests/smoke.mjs && node packages/whale-ui/tests/smoke.mjs"
   }
 }

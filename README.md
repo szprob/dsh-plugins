@@ -9,6 +9,7 @@ songze 的 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) �
 | 包 | 在哪 | 说明 |
 |---|---|---|
 | [`dsh-eye-care`](packages/eye-care) | 设置 → 通用设置 → 护眼模式 | 暖色纸感配色，降低蓝光观感；浅色与深色各一套暖色板 |
+| [`dsh-whale-ui`](packages/whale-ui) | 左上角 / 新会话首页 / 右下角按钮 | 换成会动的鲸鱼娘（透明 WebM 序列帧，四处不同动作） |
 
 ## 安装
 

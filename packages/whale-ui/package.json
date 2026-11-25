@@ -1,0 +1,56 @@
+{
+  "name": "dsh-whale-ui",
+  "version": "1.0.0",
+  "description": "鲸鱼娘界面：把左上角品牌/新会话、新会话首页和发送/停止按钮换成会动的鲸鱼娘。",
+  "type": "module",
+  "license": "MIT",
+  "author": "songze",
+  "homepage": "https://github.com/szprob/dsh-plugins/tree/main/packages/whale-ui",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szprob/dsh-plugins.git",
+    "directory": "packages/whale-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/szprob/dsh-plugins/issues"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ]
+    }
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "whale-girl",
+    "mascot",
+    "appearance",
+    "animation"
+  ],
+  "engines": {
+    "dsh": ">=0.2.0"
+  }
+}
