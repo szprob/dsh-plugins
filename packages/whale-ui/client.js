@@ -56,8 +56,8 @@ window.__ModuleLoader__.load({
         const place = () => {
           if (primary !== null && primary.isConnected) {
             const r = primary.getBoundingClientRect()
-            video.style.left = `${r.left - 8}px`
-            video.style.top = `${r.top - 44}px`
+            video.style.left = `${r.left - 22}px`
+            video.style.top = `${r.top - 58}px`
           }
           raf = requestAnimationFrame(place)
         }
@@ -106,23 +106,23 @@ window.__ModuleLoader__.load({
         style.id = 'dwhale-ui-style'
         style.textContent = `
           [class*="_newSessionRow"] { display:none !important; }
-          [class*="_logoRow"]:has(.dwhale-mark-btn) { height:96px !important; overflow:visible !important; }
-          [class*="_brand"]:has(.dwhale-mark-btn) { overflow:visible !important; height:auto !important; min-height:88px !important; gap:12px !important; }
+          [class*="_logoRow"]:has(.dwhale-mark-btn) { height:116px !important; overflow:visible !important; }
+          [class*="_brand"]:has(.dwhale-mark-btn) { overflow:visible !important; height:auto !important; min-height:108px !important; gap:12px !important; }
           [class*="_brandIdentity"]:has(.dwhale-mark-btn) { height:auto !important; gap:12px !important; width:100% !important; }
           [class*="_brandMark"]:has(.dwhale-mark-btn) { height:auto !important; }
           .dwhale-brand-name { display:flex; align-items:center; min-width:0; white-space:nowrap; }
           .dwhale-brand-title { font-size:17px; font-weight:600; line-height:1.2; color:var(--dsw-alias-label-primary, #2b3550); overflow:hidden; text-overflow:ellipsis; }
-          .dwhale-mark-btn { display:flex; align-items:center; justify-content:center; width:88px; height:88px; padding:0; border:0; background:transparent; cursor:pointer; overflow:visible; flex:none; }
-          .dwhale-mark { display:block; width:88px; height:88px; object-fit:contain; }
+          .dwhale-mark-btn { display:flex; align-items:center; justify-content:center; width:108px; height:108px; padding:0; border:0; background:transparent; cursor:pointer; overflow:visible; flex:none; }
+          .dwhale-mark { display:block; width:108px; height:108px; object-fit:contain; }
           [class*="_titleGroup"] { display:none !important; }
-          .dwhale-hero-row { display:inline-flex; align-items:center; gap:18px; white-space:nowrap; }
-          .dwhale-hero { display:block; width:128px; height:128px; object-fit:contain; filter:drop-shadow(0 5px 8px rgba(20,50,90,.22)); }
+          .dwhale-hero-row { display:inline-flex; align-items:center; gap:20px; white-space:nowrap; }
+          .dwhale-hero { display:block; width:168px; height:168px; object-fit:contain; filter:drop-shadow(0 5px 8px rgba(20,50,90,.22)); }
           .dwhale-hero-title { font-size:26px; font-weight:500; line-height:32px; color:var(--dsw-alias-label-primary, #2b3550); }
           .dwhale-probe { display:none; }
           [data-dwhale-primary] { position:relative !important; overflow:visible !important; width:38px !important; height:38px !important; background:transparent !important; border:0 !important; box-shadow:none !important; isolation:auto !important; }
           [data-composer-card]:focus-within [data-dwhale-primary] { opacity:1 !important; }
           [data-dwhale-primary] > svg { display:none !important; }
-          .dwhale-video { position:fixed; width:122px; height:122px; z-index:60; object-fit:contain; pointer-events:none; filter:drop-shadow(0 5px 7px rgba(30,60,100,.3)); }
+          .dwhale-video { position:fixed; width:152px; height:152px; z-index:60; object-fit:contain; pointer-events:none; filter:drop-shadow(0 5px 7px rgba(30,60,100,.3)); }
         `
         document.head.appendChild(style)
         ctx.effect(() => () => { style.remove() }, 'dwhale-ui: style')
