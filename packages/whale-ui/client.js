@@ -95,6 +95,28 @@ window.__ModuleLoader__.load({
     // with a whale-girl still. Uses a MutationObserver because rows come and go.
     function ChatIcons() {
       React.useEffect(() => {
+        // Animated eating whale pinned to the right of the sidebar nickname.
+        // A body-level overlay avoids React reclaiming nodes inside the button.
+        const nickVideo = document.createElement('video')
+        nickVideo.className = 'dwhale-nick-video'
+        nickVideo.src = V_EAT
+        nickVideo.muted = true; nickVideo.loop = true; nickVideo.autoplay = true; nickVideo.playsInline = true
+        nickVideo.setAttribute('aria-hidden', 'true')
+        document.body.appendChild(nickVideo)
+        nickVideo.play().catch(() => {})
+        let nickRaf = 0
+        const placeNick = () => {
+          const trigger = document.querySelector('[aria-label="账号菜单"]')
+          if (trigger !== null && trigger.isConnected) {
+            const r = trigger.getBoundingClientRect()
+            if (r.width > 0) {
+              nickVideo.style.left = `${r.right - 78}px`
+              nickVideo.style.top = `${r.top - 9}px`
+            }
+          }
+          nickRaf = requestAnimationFrame(placeNick)
+        }
+        nickRaf = requestAnimationFrame(placeNick)
         let timer = 0
         const apply = () => {
           // clean up any oversized video nodes left by earlier versions
@@ -149,7 +171,10 @@ window.__ModuleLoader__.load({
         apply()
         const observer = new MutationObserver(schedule)
         observer.observe(document.body, { childList: true, subtree: true })
-        return () => { observer.disconnect(); window.clearTimeout(timer) }
+        return () => {
+          observer.disconnect(); window.clearTimeout(timer)
+          cancelAnimationFrame(nickRaf); nickVideo.remove()
+        }
       }, [])
       return null
     }
@@ -252,17 +277,13 @@ window.__ModuleLoader__.load({
           video.dwhale-nick-whale, video.dwhale-spinner-whale { display:none !important; }
           svg[data-state="ongoing"] { width:16px !important; height:16px !important; }
           .dwhale-run-icon { width:18px; height:18px; }
-          /* Nickname whale: attach to the TRIGGER (no overflow:hidden there),
-             sized 50px with a broken-frame clip so it is whole and pops out. */
-          [aria-label="账号菜单"] { position:relative !important; }
-          [aria-label="账号菜单"] [class*="_label"] { padding-right:56px !important; }
-          [aria-label="账号菜单"]::after {
-            content:""; position:absolute; right:12px; top:50%;
-            width:50px; height:50px; margin-top:-25px;
-            background-image:var(--dwhale-eat) !important;
-            background-size:contain; background-repeat:no-repeat; background-position:center;
-            pointer-events:none; z-index:2;
-            clip-path:polygon(12% 0,100% 0,100% 100%,0 100%,0 22%,18% 12%);
+          /* Nickname whale: a real looping video, body-level so React cannot
+             reclaim it; sits a bit left of the nickname edge and slightly bigger. */
+          [aria-label="账号菜单"] [class*="_label"] { padding-right:64px !important; }
+          .dwhale-nick-video {
+            position:fixed; width:60px; height:60px; z-index:55;
+            object-fit:contain; pointer-events:none;
+            filter:drop-shadow(0 3px 5px rgba(30,60,100,.28));
           }
           /* Walking whale below the composer on the new-session page. */
           .dwhale-walker {
