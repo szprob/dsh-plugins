@@ -92,6 +92,8 @@ window.__ModuleLoader__.load({
       React.useEffect(() => {
         let timer = 0
         const apply = () => {
+          // clean up any oversized video nodes left by earlier versions
+          for (const bad of document.querySelectorAll('video.dwhale-nick-whale, video.dwhale-spinner-whale')) bad.remove()
           // process header icons
           for (const el of document.querySelectorAll('[data-step-process-icon]')) {
             if (el.querySelector('svg') === null && !el.hasAttribute('data-dwhale-skinned')) continue
@@ -104,21 +106,6 @@ window.__ModuleLoader__.load({
             el.appendChild(img)
             el.setAttribute('data-dwhale-skinned', '')
           }
-          // Session-list running spinner: svg[data-state="ongoing"].
-          // Replace the spinning circle with an animated whale.
-          for (const svg of document.querySelectorAll('svg[data-state="ongoing"]')) {
-            if (svg.hasAttribute('data-dwhale-spinner')) continue
-            const parent = svg.parentElement
-            if (parent === null) continue
-            const img = document.createElement('video')
-            img.className = 'dwhale-spinner-whale'
-            img.src = V_IDLE; img.muted = true; img.loop = true; img.autoplay = true; img.playsInline = true
-            img.setAttribute('aria-hidden', 'true')
-            img.play().catch(() => {})
-            svg.style.display = 'none'
-            svg.setAttribute('data-dwhale-spinner', '')
-            parent.appendChild(img)
-          }
           // Deep-diving running status uses its own RunningWhaleTail span.
           for (const row of document.querySelectorAll('[data-chat-running]')) {
             if (row.hasAttribute('data-dwhale-run-skinned')) continue
@@ -130,21 +117,6 @@ window.__ModuleLoader__.load({
             img.style.backgroundImage = `url("${CHAT_ICON}")`
             icon.appendChild(img)
             row.setAttribute('data-dwhale-run-skinned', '')
-          }
-          // Nickname row in sidebar footer: append a funny eating whale to the right.
-          for (const trigger of document.querySelectorAll('[aria-label="账号菜单"]')) {
-            if (trigger.hasAttribute('data-dwhale-nick-skinned')) continue
-            const label = trigger.querySelector('[class*="_label"]')
-            if (label === null) continue
-            let w = trigger.querySelector('.dwhale-nick-whale')
-            if (w === null) {
-              w = document.createElement('video')
-              w.className = 'dwhale-nick-whale'
-              w.src = V_EAT; w.muted = true; w.loop = true; w.autoplay = true; w.playsInline = true
-              w.setAttribute('aria-hidden', 'true')
-              label.insertAdjacentElement('afterend', w)
-            }
-            trigger.setAttribute('data-dwhale-nick-skinned', '')
           }
           // thinking / command rows carry data-variant; their leading icon is a
           // hashed class containing "_leading". Find it by class substring.
@@ -244,6 +216,10 @@ window.__ModuleLoader__.load({
         const style = document.createElement('style')
         style.id = 'dwhale-ui-style'
         style.textContent = `
+          :root {
+            --dwhale-chat-icon: url("data:image/webp;base64,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");
+            --dwhale-eat: url("data:image/webp;base64,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");
+          }
           [class*="_newSessionRow"] { display:none !important; }
           [class*="_logoRow"]:has(.dwhale-mark-btn) { height:116px !important; overflow:visible !important; }
           [class*="_brand"]:has(.dwhale-mark-btn) { overflow:visible !important; height:auto !important; min-height:108px !important; gap:12px !important; }
@@ -266,9 +242,30 @@ window.__ModuleLoader__.load({
             display:inline-block; width:16px; height:16px; flex:none;
             background-size:contain; background-repeat:no-repeat; background-position:center;
           }
-          .dwhale-run-icon { width:18px; height:18px; }
-          .dwhale-nick-whale { display:block; width:34px; height:34px; object-fit:contain; flex:none; margin-left:2px; pointer-events:none; }
-          .dwhale-spinner-whale { display:inline-block; width:18px; height:18px; object-fit:contain; flex:none; vertical-align:middle; pointer-events:none; }
+
+          /* hard guards: no injected video may ever grow beyond its slot */
+          video.dwhale-nick-whale, video.dwhale-spinner-whale { display:none !important; }
+          [aria-label="账号菜单"] [class*="_label"]::after { width:36px !important; height:36px !important; }
+          svg[data-state="ongoing"] { width:16px !important; height:16px !important; }          .dwhale-run-icon { width:18px; height:18px; }
+          [aria-label="账号菜单"] [class*="_label"] { position:relative !important; padding-right:44px !important; }
+          [aria-label="账号菜单"] [class*="_label"]::after {
+            content:""; position:absolute; right:-6px; top:50%;
+            width:52px; height:52px; transform:translateY(-50%);
+            background-image:var(--dwhale-eat) !important;
+            background-size:contain; background-repeat:no-repeat; background-position:center;
+            pointer-events:none;
+            clip-path:polygon(8% 0,100% 0,100% 100%,0 100%,0 18%);
+          }
+          /* Session-list spinner: only the truly-running svg matches, so React
+             node reuse can never show a whale on an idle session. */
+          svg[data-state="ongoing"] circle { display:none !important; }
+          svg[data-state="ongoing"] {
+            background-image:var(--dwhale-chat-icon) !important;
+            background-size:contain !important; background-repeat:no-repeat !important;
+            background-position:center !important;
+            animation:dwhale-spin-float 1.4s ease-in-out infinite !important;
+          }
+          @keyframes dwhale-spin-float { 0%,100%{transform:translateY(0) rotate(-8deg)} 50%{transform:translateY(-2px) rotate(8deg)} }
           .dwhale-pet-wrap > video { display:block; width:100%; height:100%; object-fit:contain; }
           .dwhale-pet-base { position:relative; }
           .dwhale-pet-react { position:absolute; inset:0; pointer-events:none; }
