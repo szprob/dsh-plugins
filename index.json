@@ -50,11 +50,11 @@
       "versions": [
         {
           "version": "1.0.0",
-          "publishTimestamp": 1795662954,
+          "publishTimestamp": 1795663183,
           "source": {
             "type": "git",
             "url": "https://github.com/szprob/dsh-plugins",
-            "commit": "b75affa2da46eb71e4e5162bd7be094fdcd70aa9",
+            "commit": "50c13d4736626fe83d701447bf846068afa9d034",
             "path": "packages/eye-care"
           },
           "engines": {
@@ -96,11 +96,11 @@
       "versions": [
         {
           "version": "1.0.0",
-          "publishTimestamp": 1795662954,
+          "publishTimestamp": 1795663183,
           "source": {
             "type": "git",
             "url": "https://github.com/szprob/dsh-plugins",
-            "commit": "b75affa2da46eb71e4e5162bd7be094fdcd70aa9",
+            "commit": "50c13d4736626fe83d701447bf846068afa9d034",
             "path": "packages/whale-ui"
           },
           "engines": {
