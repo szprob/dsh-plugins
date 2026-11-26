@@ -131,10 +131,10 @@ window.__ModuleLoader__.load({
             const r = card.getBoundingClientRect()
             if (r.width > 0) {
               const left = r.left + 8
-              const right = r.right - 96
+              const right = r.right - 128
               document.documentElement.style.setProperty('--dwhale-walk-left', `${left}px`)
               document.documentElement.style.setProperty('--dwhale-walk-right', `${Math.max(left, right)}px`)
-              document.documentElement.style.setProperty('--dwhale-walk-top', `${r.bottom - 12}px`)
+              document.documentElement.style.setProperty('--dwhale-walk-top', `${r.bottom - 16}px`)
             }
           }
           walkRaf = requestAnimationFrame(placeWalk)
@@ -311,7 +311,7 @@ window.__ModuleLoader__.load({
           /* Walker: a real walk-cycle video, confined to the composer card.
              It paces left<->right under the composer box and flips at the ends. */
           .dwhale-walker {
-            position:fixed; top:var(--dwhale-walk-top, 70%); width:88px; height:88px;
+            position:fixed; top:var(--dwhale-walk-top, 70%); width:120px; height:120px;
             object-fit:contain; pointer-events:none; z-index:5;
             filter:drop-shadow(0 3px 5px rgba(30,60,100,.25));
             animation:dwhale-walk 24s linear infinite;
