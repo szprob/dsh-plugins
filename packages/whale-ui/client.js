@@ -232,13 +232,23 @@ window.__ModuleLoader__.load({
         const place = () => {
           if (primary !== null && primary.isConnected) {
             const r = primary.getBoundingClientRect()
-            video.style.left = `${r.left - 22}px`
-            video.style.top = `${r.top - 58}px`
+            // When the send/stop button is hidden (e.g. a question card is
+            // asking for input), its rect collapses to 0 — hide the whale
+            // instead of parking it at the top-left corner.
+            const visible = r.width > 0 && r.height > 0
+            video.style.visibility = visible ? 'visible' : 'hidden'
+            if (visible) {
+              video.style.left = `${r.left - 22}px`
+              video.style.top = `${r.top - 58}px`
+            }
+          } else {
+            video.style.visibility = 'hidden'
           }
           raf = requestAnimationFrame(place)
         }
         const refresh = () => {
           primary = document.querySelector('[data-dwhale-primary]') || null
+          if (primary === null) video.style.visibility = 'hidden'
           const running = primary !== null && primary.hasAttribute('data-dwhale-running')
           setSrc(running ? V_WORK : V_IDLE)
         }
