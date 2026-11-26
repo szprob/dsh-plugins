@@ -225,6 +225,14 @@ window.__ModuleLoader__.load({
         video.muted = true; video.loop = true; video.autoplay = true; video.playsInline = true
         video.setAttribute('aria-hidden', 'true')
         document.body.appendChild(video)
+        // Clicking the whale must forward to the real Send/Stop button —
+        // the overlay sits offset from the button, so pointer-through alone
+        // lands beside it and the original action is lost.
+        video.addEventListener('click', () => {
+          if (primary !== null && primary.isConnected && !primary.disabled) {
+            primary.click()
+          }
+        })
         let srcNow = ''
         const setSrc = (s) => { if (s !== srcNow) { srcNow = s; video.src = s; video.play().catch(()=>{}) } }
         setSrc(V_IDLE)
@@ -313,7 +321,11 @@ window.__ModuleLoader__.load({
           [data-dwhale-primary] { position:relative !important; overflow:visible !important; width:38px !important; height:38px !important; background:transparent !important; border:0 !important; box-shadow:none !important; isolation:auto !important; }
           [data-composer-card]:focus-within [data-dwhale-primary] { opacity:1 !important; }
           [data-dwhale-primary] > svg { display:none !important; }
-          .dwhale-video { position:fixed; width:152px; height:152px; z-index:60; object-fit:contain; pointer-events:none; filter:drop-shadow(0 5px 7px rgba(30,60,100,.3)); }
+          .dwhale-video {
+            position:fixed; width:152px; height:152px; z-index:60;
+            object-fit:contain; pointer-events:auto; cursor:pointer;
+            filter:drop-shadow(0 5px 7px rgba(30,60,100,.3));
+          }
           .dwhale-chat-icon {
             display:inline-block; width:16px; height:16px; flex:none;
             background-size:contain; background-repeat:no-repeat; background-position:center;
