@@ -98,6 +98,9 @@ window.__ModuleLoader__.load({
       React.useEffect(() => {
         // Animated eating whale pinned to the right of the sidebar nickname.
         // A body-level overlay avoids React reclaiming nodes inside the button.
+        // The effect can run twice (StrictMode / slot re-register): remove any
+        // earlier instance first so there is exactly ONE whale.
+        for (const old of document.querySelectorAll('video.dwhale-nick-video')) old.remove()
         const nickVideo = document.createElement('video')
         nickVideo.className = 'dwhale-nick-video'
         nickVideo.src = V_EAT
